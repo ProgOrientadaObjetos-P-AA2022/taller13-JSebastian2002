@@ -7,7 +7,7 @@ package paquete02;
 
 import java.util.ArrayList;
 import paquete01.Televisor;
-import paquete01.CalculoTv;
+import paquete03.Calculotv;
 
 /**
  *
@@ -34,10 +34,11 @@ public class Principal {
         tvs.add(t2);
         tvs.add(t3);
         
-        CalculoTv cl = new CalculoTv();
-        cl.establecerTotalPrecioTvs(tvs);
-        cl.establecerListaMarcasVendidas(tvs);
-        cl.establecerTelevisorMasCaro(tvs);
+        
+        Calculotv cl = new Calculotv();
+        cl.establecerTelevisor(tvs);
+        cl.televisorMasCaro();
+        cl.establecertotalPrecioTvs();
         
         System.out.printf("%s \n",cl);
         

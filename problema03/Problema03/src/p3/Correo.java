@@ -38,5 +38,6 @@ public class Correo {
     public String obtenerCorreo(){
         return correo;
     }
-    
+
+
 }

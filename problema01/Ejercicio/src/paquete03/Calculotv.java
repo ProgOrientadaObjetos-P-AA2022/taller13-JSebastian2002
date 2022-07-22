@@ -12,54 +12,76 @@ import paquete01.Televisor;
  * @author SALA I
  */
 public class Calculotv {
-    private double precioTotal;
-    private ArrayList<Televisor>tv;
-    private String x;
-    private double c;
-    
-    public void establecerTv(ArrayList<Televisor>t){
-        tv = t;
+
+    double precioTotal;
+    double Caro;
+    private ArrayList<Televisor> tv;
+    String masvendido;
+
+    public double obtenerCaro() {
+        return Caro;
     }
-    public ArrayList<Televisor> obtenerTv(){
+
+    public String obtenerMasvendido() {
+        return masvendido;
+    }
+
+    public double obtenerPrecioTotal() {
+        return precioTotal;
+    }
+
+    public void establecerTelevisor(ArrayList<Televisor> lista) {
+        tv = lista;
+    }
+
+    public ArrayList<Televisor> obtenerTelevisor() {
         return tv;
     }
-    
-    public void establecerPrecioTotal(){
-     double s = 0;
+
+    public void establecertotalPrecioTvs() {
+        double s = 0;
         for (int i = 0; i < tv.size(); i++) {
             s = s + tv.get(i).obtenerPrecio();
-            
+
         }
         precioTotal = s;
     }
-    public double obtenerPreciotoal(){
-        return precioTotal;
+
+    public void televisorMasCaro() {
+        double mayor = 0;
+        for (int i = 0; i < tv.size(); i++) {
+            if (tv.get(i).obtenerPrecio() > mayor) {
+                mayor = tv.get(i).obtenerPrecio();
+            }
+
+        }
+
+        Caro = mayor;
+
     }
-    
-    public void listaMarcasVendidas(){
+
+    public void listaMarcasVendidas() {
         String s = "";
         for (int i = 0; i < tv.size(); i++) {
             s = String.format("%s%s\n", s, tv.get(i).obtenerMarca());
         }
-        x = s;
+        masvendido = s;
     }
-    public String obtenerMaracasVendidas(){
-        return x;
+
+    @Override
+    public String toString() {
+        String cadena = String.format("Reporte Televisores");
+        for (int i = 0; i < tv.size(); i++) {
+            cadena = String.format("%s\n"
+                    + "%s - Precio: %.2f ",
+                    cadena, obtenerTelevisor().get(i).obtenerMarca(),
+                    obtenerTelevisor().get(i).obtenerPrecio());
+        }
+
+        cadena = String.format("%s"
+                + "\nTotal Precio televiosores: %.2f\n"
+                + "Televisor mas caro: %.2f\n", cadena, precioTotal,
+                Caro);
+        return cadena;
     }
-  
-     public void televisorMasCaro(){
-        double s = 0;
-        // pass
-         for (int i = 0; i < tv.size(); i++) {
-             if (tv.get(i).obtenerPrecio()>s) {
-                 s = tv.get(i).obtenerPrecio();
-             }
-             c=s;
-         }
-       
-    }
-     public double obtenertelevisorMasCaro(){
-         return c;
-     }
-    
 }

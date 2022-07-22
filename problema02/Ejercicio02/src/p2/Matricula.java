@@ -8,6 +8,15 @@ package p2;
  *
  * @author SALA I
  */
-public class Matricula {
+public abstract class Matricula {
     
+   protected double PromedioMatriculas;
+   
+   public abstract void establecerPromedioTarifas();
+   public double obtenerPromedioTarifas(){
+       return PromedioMatriculas;
+   }
+
+  
+   
 }
